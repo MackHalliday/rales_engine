@@ -3,6 +3,7 @@
     task customers: :environment do
       counters = 0
       CSV.foreach("db/data/customers.csv", headers: true) do |row|
+        binding.pry
         customer = Customer.create!(row.to_h)
         counters += 1 if customer.persisted?
     end
