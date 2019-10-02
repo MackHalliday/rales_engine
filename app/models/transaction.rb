@@ -4,4 +4,5 @@ class Transaction < ApplicationRecord
                         :result,
                         :created_at,
                         :updated_at
+  belongs_to :invoice
 end
