@@ -33,6 +33,12 @@ group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
   gem 'factory_bot_rails'
   gem 'pry'
+  gem 'faker'
+  gem 'active_designer'
+  gem 'simplecov'
+  gem 'shoulda-matchers'
+  gem 'capybara'
+  gem 'launchy'
 end
 
 group :development do
