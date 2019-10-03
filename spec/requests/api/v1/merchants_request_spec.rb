@@ -91,7 +91,7 @@ describe "Merchant Record Endpoints" do
     merchant_2 = create(:merchant, name: "adam")
     merchant_3 = create(:merchant, name: "chuck")
 
-    get "/api/v1/merchants/find_all?name=adam"
+    get "/api/v1/merchants/find_all?NAME=adam"
 
     expect(response).to be_successful
 
