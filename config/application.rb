@@ -12,6 +12,7 @@ require "action_view/railtie"
 require "action_cable/engine"
 
 require "csv"
+require "faker"
 # require "sprockets/railtie"
 # require "rails/test_unit/railtie"
 
