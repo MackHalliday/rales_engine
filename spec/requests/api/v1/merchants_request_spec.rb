@@ -7,12 +7,11 @@ describe "Merchant Record Endpoints" do
 
   it "can return all merchants" do
 
-    visit '/api/v1/merchants'
+    get "/api/v1/merchants"
 
     expect(response).to be_successful
 
-    # json_response = JSON.parse(response.body)
-    #   expect(hash_body.keys).to match_array([:id, :ingredients, :instructions])
+    json_response = JSON.parse(response.body)
   end
 
   it "can return a single merchant" do
