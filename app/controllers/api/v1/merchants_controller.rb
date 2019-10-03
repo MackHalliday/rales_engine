@@ -4,10 +4,16 @@ class Api::V1::MerchantsController < ApplicationController
   end
 
   def show
-    render json: MerchantSerializer.new(Merchant.find(request.params[:id]))
+    if request.params[:id] == "find_all"
+      render json: MerchantSerializer.new(Merchant.where(merchant_info))
+    else
+      render json: MerchantSerializer.new(Merchant.find_by(merchant_info))
+    end
   end
 
   private
-  def merchant_params
+  def merchant_info
+    return request.query_parameters if request.query_string.present?
+    {id: params[:id]}
   end
 end
