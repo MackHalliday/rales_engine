@@ -13,7 +13,7 @@ class Api::V1::MerchantsController < ApplicationController
 
   private
   def merchant_info
-    return request.query_parameters if request.query_string.present?
+    return request.query_parameters if request.query_parameters.present?
     {id: params[:id]}
   end
 end
