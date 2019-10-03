@@ -33,12 +33,42 @@ describe "Merchant Record Endpoints" do
     expect(json_response["data"]["attributes"]["name"]).to eq(@merchants.first.name)
   end
 
-  it "can find a single merchant" do
+  it "can find a single merchant by id" do
+    # binding.pry
+    get "/api/v1/merchants/find?name=#{@merchants.first.id}"
+
+    expect(response).to be_successful
+
+    json_response = JSON.parse(response.body)
   end
 
-  it "can find multipl merchants" do
+  it "can find a single merchant by name" do
+    skip
+    get "/api/v1/merchants/find?name=#{@merchants.first.name}"
+
+    expect(response).to be_successful
+
+    json_response = JSON.parse(response.body)
   end
 
-  it "can return multiple merchants" do
+  it "can find a single merchant by created_at" do
+    skip
+    get "/api/v1/merchants/find?created_at=#{@merchants.first.created_at}"
+
+    expect(response).to be_successful
+
+    json_response = JSON.parse(response.body)
+  end
+
+  it "can find a single merchant by updated_at" do
+    skip
+    get "/api/v1/merchants/find?created_at=#{@merchants.first.updated_at}"
+
+    expect(response).to be_successful
+
+    json_response = JSON.parse(response.body)
+  end
+
+  it "can find multiple merchants" do
   end
 end
