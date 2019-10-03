@@ -1,5 +1,10 @@
-
+require 'csv'
 namespace :import do
+
+  desc "Import all files"
+    task all: [:customers, :merchants, :items, :invoices, :transactions, :invoice_items] do
+  end
+
   desc "Import customers from csv"
     task customers: :environment do
       CSV.foreach("db/data/customers.csv", headers: true) do |row|
