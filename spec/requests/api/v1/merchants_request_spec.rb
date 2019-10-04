@@ -104,4 +104,45 @@ describe "Merchant Record Endpoints" do
     expect(json_response["data"][1]["attributes"]["id"]).to eq(merchant_2.id)
     expect(json_response["data"][1]["attributes"]["name"]).to eq(merchant_2.name)
   end
+
+  it "can find multiple merchants by created_at" do
+    skip
+
+    merchant_1 = create(:merchant, name: "adam")
+    merchant_2 = create(:merchant, name: "adam")
+    merchant_3 = create(:merchant, name: "chuck")
+
+    get "/api/v1/merchants/find_all?created_at=adam"
+
+    expect(response).to be_successful
+
+    json_response = JSON.parse(response.body)
+
+    expect(json_response["data"].count).to eq(2)
+    expect(json_response["data"][0]["attributes"]["id"]).to eq(merchant_1.id)
+    expect(json_response["data"][0]["attributes"]["name"]).to eq(merchant_1.name)
+
+    expect(json_response["data"][1]["attributes"]["id"]).to eq(merchant_2.id)
+    expect(json_response["data"][1]["attributes"]["name"]).to eq(merchant_2.name)
+  end
+
+  it "can find multiple merchants by updated_at" do
+    skip
+    merchant_1 = create(:merchant, name: "adam")
+    merchant_2 = create(:merchant, name: "adam")
+    merchant_3 = create(:merchant, name: "chuck")
+
+    get "/api/v1/merchants/find_all?updated_at=adam"
+
+    expect(response).to be_successful
+
+    json_response = JSON.parse(response.body)
+
+    expect(json_response["data"].count).to eq(2)
+    expect(json_response["data"][0]["attributes"]["id"]).to eq(merchant_1.id)
+    expect(json_response["data"][0]["attributes"]["name"]).to eq(merchant_1.name)
+
+    expect(json_response["data"][1]["attributes"]["id"]).to eq(merchant_2.id)
+    expect(json_response["data"][1]["attributes"]["name"]).to eq(merchant_2.name)
+  end
 end
