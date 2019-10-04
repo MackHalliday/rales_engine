@@ -39,6 +39,7 @@ group :development, :test do
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
+  gem 'database_cleaner', '~> 1.7'
 end
 
 group :development do
@@ -55,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'rspec-rails'
 
 gem 'faker'
+
+gem 'fast_jsonapi'
