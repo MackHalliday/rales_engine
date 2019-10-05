@@ -47,7 +47,7 @@ describe "Merchant Record Endpoints" do
   end
 
   it "can return top merchants by revenue" do
-
+    skip
     #Top merchant with most revenue
     get "/api/v1/merchants/most_revenue?quantity=1"
 
@@ -65,7 +65,7 @@ describe "Merchant Record Endpoints" do
   end
 
   it "can return a merchant's revenue by date" do
-    
+    skip
     get "/api/v1/merchants/revenue?date=x"
 
   end
