@@ -46,6 +46,27 @@ describe "Merchant Record Endpoints" do
       @invoice_items_11 = create(:invoice_item, item: @item_2, invoice: @invoice_5, quantity: 1, unit_price: @item_2.unit_price)
   end
 
-  it "has created all the objects" do
+  it "can return top merchants by revenue" do
+
+    #Top merchant with most revenue
+    get "/api/v1/merchants/most_revenue?quantity=1"
+
+    expect(response).to be_successful
+
+    json_response = JSON.parse(response.body)
+
+    expect(json_response["data"].count).to eq(1)
+
+    #Top 2 merchants with most revenue
+    get "/api/v1/merchants/most_revenue?quantity=1"
+
+    #Top 3 merchants with most revenue
+    get "/api/v1/merchants/most_revenue?quantity=1"
+  end
+
+  it "can return a merchant's revenue by date" do
+    
+    get "/api/v1/merchants/revenue?date=x"
+
   end
 end
