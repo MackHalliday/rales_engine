@@ -45,4 +45,8 @@ describe "Merchant Record Endpoints" do
       @invoice_items_10 = create(:invoice_item, item: @item_1, invoice: @invoice_5, quantity: 1, unit_price: @item_1.unit_price)
       @invoice_items_11 = create(:invoice_item, item: @item_2, invoice: @invoice_5, quantity: 1, unit_price: @item_2.unit_price)
   end
+
+  it "has created all the objects" do
+    binding.pry
+  end
 end

@@ -5,4 +5,5 @@ class InvoiceItem < ApplicationRecord
                         :updated_at
   belongs_to :item
   belongs_to :invoice
+  has_many :merchants, through: :invoice
 end
