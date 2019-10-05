@@ -47,6 +47,5 @@ describe "Merchant Record Endpoints" do
   end
 
   it "has created all the objects" do
-    binding.pry
   end
 end
