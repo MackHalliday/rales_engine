@@ -121,7 +121,7 @@ describe "Items Record Endpoints" do
     expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@items[0].id)
     expect(json_response["data"]["attributes"]["name"]).to eq(@items[0].name)
-    expect(json_response["data"]["attributes"]["unit_price"]).to eq(@items[0].unit_price)
+    expect(json_response["data"]["attributes"]["unit_price"]).to eq("100.00")
   end
 
   it "can find a single item by created_at" do
@@ -217,19 +217,19 @@ describe "Items Record Endpoints" do
 
     merchant_1 = create(:merchant)
 
-    item_1 = create(:item, unit_price: 10000, merchant: merchant_1)
-    item_2 = create(:item, unit_price: 10000, merchant: merchant_1)
-    item_3 = create(:item, unit_price: 15000, merchant: merchant_1)
+    item_1 = create(:item, unit_price: 70000, merchant: merchant_1)
+    item_2 = create(:item, unit_price: 70000, merchant: merchant_1)
+    item_3 = create(:item, unit_price: 80000, merchant: merchant_1)
 
-    get "/api/v1/items/find_all?unit_price=100.00"
+    get "/api/v1/items/find_all?unit_price=700.00"
 
     expect(response).to be_successful
 
     json_response = JSON.parse(response.body)
 
     expect(json_response["data"].count).to eq(2)
-    expect(json_response["data"][0]["attributes"]["unit_price"]).to eq(item_1.unit_price)
-    expect(json_response["data"][1]["attributes"]["unit_price"]).to eq(item_2.unit_price)
+    expect(json_response["data"][0]["attributes"]["unit_price"]).to eq("700.00")
+    expect(json_response["data"][1]["attributes"]["unit_price"]).to eq("700.00")
   end
 
   it "can find multiple items by created_at" do
