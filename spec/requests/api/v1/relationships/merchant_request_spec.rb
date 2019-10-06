@@ -44,7 +44,7 @@ describe "Merchant Record Endpoints" do
     json_response = JSON.parse(response.body)
 
     expect(json_response["data"].count).to eq(2)
-    expect(json_response["data"][0]["attributes"].count).to eq(6)
+    expect(json_response["data"][0]["attributes"].count).to eq(3)
     expect(json_response["data"][0]["attributes"]["id"]).to eq(@invoice_1.id)
     expect(json_response["data"][1]["attributes"]["id"]).to eq(@invoice_2.id)
   end
