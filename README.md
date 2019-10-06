@@ -18,6 +18,17 @@
 
 ### Records
 ##### Merchant
+* `GET /api/v1/merchants` returns all merchants
+* `GET /api/v1/merchants/:id` returns a single merchant
+* `GET /api/v1/merchants/find?id=x` returns first merchant with id equal to x
+* `GET /api/v1/merchants/find?name=x` returns first merchant with name equal to x
+* `GET /api/v1/merchants/find?created_at=x` returns first merchant with created_at equal to x
+* `GET /api/v1/merchants/find?updated_at=x` returns first merchant with updated_at equal to x
+* `GET /api/v1/merchants/find_all?id=x` returns all merchants with id equal to x
+* `GET /api/v1/merchants/find_all?name=x` returns all merchants with name equal to x
+* `GET /api/v1/merchants/find_all?created_at=x` returns all merchants with created_at equal to x
+* `GET /api/v1/merchants/find_all?updated_at=x` returns all merchants with updated_at equal to x
+* ` GET api/v1/merchants/random` returns one random merchant record
 ##### Customer
 ##### Item
 ##### Invoice
