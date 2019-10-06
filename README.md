@@ -1,18 +1,23 @@
 # README
 
-* Ruby version: Ruby 2.4.1, Rails 5.2.3
+### Requirements: Ruby 2.4.1, Rails 5.2.3
 
-* System dependencies
+### System dependencies
 
-* Configuration
+### Configuration
 
-* Database creation: rake db:{drop,create,migrate}
+### Database creation: rake db:{drop,create,migrate}
 
-* Database initialization
+## How to run the test suite
+1. Clone repository
+2. Run `bundle install`
 
-* How to run the test suite
+## Enpoints
 
-* Services (job queues, cache servers, search engines, etc.)
+### Records
 
-* Deployment instructions
+### Relationships
+
+### Business Intelligence 
+
 
