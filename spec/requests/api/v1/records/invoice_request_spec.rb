@@ -31,7 +31,8 @@ describe "Invoices Record Endpoints" do
 
     @expected_attributes = [ "id",
                             "merchant_id",
-                            "customer_id"]
+                            "customer_id",
+                            "status"]
   end
 
   it "can return all invoices" do
@@ -64,6 +65,7 @@ describe "Invoices Record Endpoints" do
     expect(json_response["data"]["attributes"]["id"]).to eq(@invoices[0].id)
     expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoices[0].merchant_id)
     expect(json_response["data"]["attributes"]["customer_id"]).to eq(@invoices[0].customer_id)
+    expect(json_response["data"]["attributes"]["status"]).to eq(@invoices[0].status)
   end
 
   it "can find a single invoice by id" do
@@ -77,6 +79,7 @@ describe "Invoices Record Endpoints" do
     expect(json_response["data"]["attributes"]["id"]).to eq(@invoices[0].id)
     expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoices[0].merchant_id)
     expect(json_response["data"]["attributes"]["customer_id"]).to eq(@invoices[0].customer_id)
+    expect(json_response["data"]["attributes"]["status"]).to eq(@invoices[0].status)
   end
 
   it "can find a single invoice by merchant_id" do
@@ -90,8 +93,9 @@ describe "Invoices Record Endpoints" do
 
     expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@invoice_1.id)
-    expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoice_1.merchant_id)
-    expect(json_response["data"]["attributes"]["customer_id"]).to eq(@invoice_1.customer_id)
+    expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoices[0].merchant_id)
+    expect(json_response["data"]["attributes"]["customer_id"]).to eq(@invoices[0].customer_id)
+    expect(json_response["data"]["attributes"]["status"]).to eq(@invoices[0].status)
   end
 
   it "can find a single invoice by customer_id" do
@@ -106,6 +110,7 @@ describe "Invoices Record Endpoints" do
     expect(json_response["data"]["attributes"]["id"]).to eq(@invoices[0].id)
     expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoices[0].merchant_id)
     expect(json_response["data"]["attributes"]["customer_id"]).to eq(@invoices[0].customer_id)
+    expect(json_response["data"]["attributes"]["status"]).to eq(@invoices[0].status)
   end
 
   it "can find a single invoice by status" do
@@ -119,6 +124,7 @@ describe "Invoices Record Endpoints" do
     expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@invoices[0].id)
     expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoices[0].merchant_id)
+    expect(json_response["data"]["attributes"]["status"]).to eq(@invoices[0].status)
   end
 
   it "can find a single invoice by created_at" do
@@ -133,6 +139,7 @@ describe "Invoices Record Endpoints" do
     expect(json_response["data"]["attributes"]["id"]).to eq(@invoices[0].id)
     expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoices[0].merchant_id)
     expect(json_response["data"]["attributes"]["customer_id"]).to eq(@invoices[0].customer_id)
+    expect(json_response["data"]["attributes"]["status"]).to eq(@invoices[0].status)
   end
 
   it "can find a single invoice by updated_at" do
@@ -144,9 +151,9 @@ describe "Invoices Record Endpoints" do
     json_response = JSON.parse(response.body)
 
     expect(json_response["data"].count).to eq(3)
-    expect(json_response["data"]["attributes"]["id"]).to eq(@invoices[0].id)
     expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoices[0].merchant_id)
     expect(json_response["data"]["attributes"]["customer_id"]).to eq(@invoices[0].customer_id)
+    expect(json_response["data"]["attributes"]["status"]).to eq(@invoices[0].status)
   end
 
   it "can find multiple invoices by merchant_id" do
@@ -199,6 +206,17 @@ describe "Invoices Record Endpoints" do
     expect(json_response["data"][7]["attributes"]["id"]).to eq(@invoice_8.id)
     expect(json_response["data"][8]["attributes"]["id"]).to eq(@invoice_9.id)
     expect(json_response["data"][9]["attributes"]["id"]).to eq(@invoice_10.id)
+
+    expect(json_response["data"][0]["attributes"]["status"]).to eq(@invoice_1.status)
+    expect(json_response["data"][1]["attributes"]["status"]).to eq(@invoice_2.status)
+    expect(json_response["data"][2]["attributes"]["status"]).to eq(@invoice_3.status)
+    expect(json_response["data"][3]["attributes"]["status"]).to eq(@invoice_4.status)
+    expect(json_response["data"][4]["attributes"]["status"]).to eq(@invoice_5.status)
+    expect(json_response["data"][5]["attributes"]["status"]).to eq(@invoice_6.status)
+    expect(json_response["data"][6]["attributes"]["status"]).to eq(@invoice_7.status)
+    expect(json_response["data"][7]["attributes"]["status"]).to eq(@invoice_8.status)
+    expect(json_response["data"][8]["attributes"]["status"]).to eq(@invoice_9.status)
+    expect(json_response["data"][9]["attributes"]["status"]).to eq(@invoice_10.status)
   end
 
   it "can find multiple invoices by created_at" do
