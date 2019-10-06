@@ -1,12 +1,14 @@
 # README
 
-### Requirements: Ruby 2.4.1, Rails 5.2.3
+## About
 
-### System dependencies
+* Requirements: Ruby 2.4.1, Rails 5.2.3
 
-### Configuration
+* System dependencies
 
-### Database creation: rake db:{drop,create,migrate}
+* Configuration
+
+* Database creation: rake db:{drop,create,migrate}
 
 ## How to run the test suite
 1. Clone repository
