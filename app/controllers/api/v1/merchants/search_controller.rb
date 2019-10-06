@@ -5,7 +5,7 @@ class Api::V1::Merchants::SearchController < ApplicationController
   end
 
   def show
-    render json: MerchantSerializer.new(Merchant.find_by(merchant_query))
+    render json: MerchantSerializer.new(Merchant.where(merchant_query).first)
   end
 
   private
