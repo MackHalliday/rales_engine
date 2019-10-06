@@ -84,9 +84,9 @@ describe "Invoice Items Relationship Endpoints" do
     expect(response).to be_successful
 
     json_response = JSON.parse(response.body)
-  
+
     expect(json_response["data"].count).to eq(3)
-    expect(json_response["data"]["attributes"]["id"]).to eq(@invoice_item_1.ITEM)
+    expect(json_response["data"]["attributes"]["id"]).to eq(@invoice_item_1.item.id)
     expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoice_item_1.item.merchant_id)
     expect(json_response["data"]["attributes"]["name"]).to eq(@invoice_item_1.item.name)
   end
