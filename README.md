@@ -17,6 +17,12 @@
 ## Enpoints
 
 ### Records
+##### Merchant
+##### Customer
+##### Item
+##### Invoice
+##### Invoice Item
+##### Transactions
 
 ### Relationships
 
