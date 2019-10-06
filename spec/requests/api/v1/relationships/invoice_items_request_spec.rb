@@ -1,6 +1,6 @@
-require 'rails_helper'
+require "rails_helper"
 
-describe "Invoice Relationship Endpoints" do
+describe "Invoice Items Relationship Endpoints" do
   before :each do
     @customer_1 = create(:customer)
     @customer_2 = create(:customer)
@@ -64,79 +64,30 @@ describe "Invoice Relationship Endpoints" do
                       @transaction_5 ]
   end
 
-  it "can return an invoice's transactions" do
+  it "can return an invoice item's invoice" do
+   get "/api/v1/invoice_items/#{@invoice_item_1.id}/invoice"
 
-    get "/api/v1/invoices/#{@invoice_1.id}/transactions"
+   expect(response).to be_successful
 
-    expect(response).to be_successful
+   json_response = JSON.parse(response.body)
 
-    json_response = JSON.parse(response.body)
-
-    expect(json_response["data"].count).to eq(1)
-    expect(json_response["data"][0]["attributes"]["id"]).to eq(@transaction_1.id)
-    expect(json_response["data"][0]["attributes"]["credit_card_number"]).to eq(@transaction_1.credit_card_number)
-    expect(json_response["data"][0]["attributes"]["invoice_id"]).to eq(@transaction_1.invoice_id)
+   expect(json_response["data"].count).to eq(3)
+   expect(json_response["data"]["attributes"]["id"]).to eq(@invoice_1.id)
+   expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoice_1.merchant_id)
+   expect(json_response["data"]["attributes"]["customer_id"]).to eq(@invoice_1.customer_id)
+   expect(json_response["data"]["attributes"]["status"]).to eq(@invoice_1.status)
   end
 
-  it "can return an invoice's invoice_items" do
-
-    get "/api/v1/invoices/#{@invoice_1.id}/invoice_items"
+  it "can return an invoice item's item " do
+    get "/api/v1/invoice_items/#{@invoice_item_1.id}/item"
 
     expect(response).to be_successful
 
     json_response = JSON.parse(response.body)
-
+  
     expect(json_response["data"].count).to eq(3)
-    expect(json_response["data"][0]["attributes"]["id"]).to eq(@invoice_item_1.id)
-    expect(json_response["data"][0]["attributes"]["quantity"]).to eq(@invoice_item_1.quantity)
-    expect(json_response["data"][0]["attributes"]["invoice_id"]).to eq(@invoice_item_1.invoice_id)
-    expect(json_response["data"][2]["attributes"]["id"]).to eq(@invoice_item_3.id)
-    expect(json_response["data"][2]["attributes"]["quantity"]).to eq(@invoice_item_3.quantity)
-    expect(json_response["data"][2]["attributes"]["invoice_id"]).to eq(@invoice_item_3.invoice_id)
-  end
-
-  it "can return an invoice's items" do
-
-    get "/api/v1/invoices/#{@invoice_1.id}/items"
-
-    expect(response).to be_successful
-
-    json_response = JSON.parse(response.body)
-
-
-    expect(json_response["data"].count).to eq(3)
-    expect(json_response["data"][0]["attributes"]["id"]).to eq(@item_1.id)
-    expect(json_response["data"][0]["attributes"]["name"]).to eq(@item_1.name)
-    expect(json_response["data"][0]["attributes"]["merchant_id"]).to eq(@item_1.merchant_id)
-    expect(json_response["data"][2]["attributes"]["id"]).to eq(@item_3.id)
-    expect(json_response["data"][2]["attributes"]["name"]).to eq(@item_3.name)
-    expect(json_response["data"][2]["attributes"]["merchant_id"]).to eq(@item_3.merchant_id)
-  end
-
-  it "can return an invoice's customers" do
-
-    get "/api/v1/invoices/#{@invoice_1.id}/customer"
-
-    expect(response).to be_successful
-
-    json_response = JSON.parse(response.body)
-
-    expect(json_response["data"].count).to eq(3)
-    expect(json_response["data"]["attributes"]["id"]).to eq(@customer_1.id)
-    expect(json_response["data"]["attributes"]["first_name"]).to eq(@customer_1.first_name)
-    expect(json_response["data"]["attributes"]["last_name"]).to eq(@customer_1.last_name)
-  end
-
-  it "can return an invoice's merchants" do
-
-     get "/api/v1/invoices/#{@invoice_1.id}/merchant"
-
-     expect(response).to be_successful
-
-     json_response = JSON.parse(response.body)
-
-     expect(json_response["data"].count).to eq(3)
-     expect(json_response["data"]["attributes"]["id"]).to eq(@merchant_1.id)
-     expect(json_response["data"]["attributes"]["name"]).to eq(@merchant_1.name)
+    expect(json_response["data"]["attributes"]["id"]).to eq(@invoice_item_1.ITEM)
+    expect(json_response["data"]["attributes"]["merchant_id"]).to eq(@invoice_item_1.item.merchant_id)
+    expect(json_response["data"]["attributes"]["name"]).to eq(@invoice_item_1.item.name)
   end
 end
