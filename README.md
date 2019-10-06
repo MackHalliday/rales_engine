@@ -30,6 +30,19 @@
 * `GET /api/v1/merchants/find_all?updated_at=x` returns all merchants with updated_at equal to x
 * ` GET api/v1/merchants/random` returns one random merchant record
 ##### Customer
+* `GET /api/v1/customers` returns all customers
+* `GET /api/v1/customers/:id` returns a single customer
+* `GET /api/v1/customers/find?id=x` returns first customer with id equal to x
+* `GET /api/v1/customers/find?first_name=x` returns first customer with first_name equal to x
+* `GET /api/v1/customers/find?last_name=x` returns first customer with last_name equal to x
+* `GET /api/v1/customers/find?created_at=x` returns first customer with created_at equal to x
+* `GET /api/v1/customers/find?updated_at=x` returns first customer with updated_at equal to x
+* `GET /api/v1/customers/find_all?id=x` returns all customers with id equal to x
+* `GET /api/v1/customers/find_all?first_name=x` returns all customers with first_name equal to x
+* `GET /api/v1/customers/find_all?last_name=x` returns all customers with last_name equal to x
+* `GET /api/v1/customers/find_all?created_at=x` returns all customers with created_at equal to x
+* `GET /api/v1/customers/find_all?updated_at=x` returns all customers with updated_at equal to x
+* `GET api/v1/customers/random` returns one random customer record
 ##### Item
 ##### Invoice
 ##### Invoice Item
