@@ -14,7 +14,7 @@
 3. Run `rake db:{drop,create,migrate}`
 4. Run `rails s` to load server
 
-## Enpoints
+## Endpoints
 
 ### Records
 ##### Merchant
