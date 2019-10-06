@@ -113,7 +113,7 @@ describe "Invoice Items Record Endpoints" do
 
     json_response = JSON.parse(response.body)
 
-    expect(json_response["data"].count).to eq(4)
+    expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@transactions[0].id)
     expect(json_response["data"]["attributes"]["credit_card_number"]).to eq(@transactions[0].credit_card_number)
     expect(json_response["data"]["attributes"]["invoice_id"]).to eq(@transactions[0].invoice_id)
@@ -128,7 +128,7 @@ describe "Invoice Items Record Endpoints" do
 
     json_response = JSON.parse(response.body)
 
-    expect(json_response["data"].count).to eq(4)
+    expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@transactions[0].id)
     expect(json_response["data"]["attributes"]["credit_card_number"]).to eq(@transactions[0].credit_card_number)
     expect(json_response["data"]["attributes"]["invoice_id"]).to eq(@transactions[0].invoice_id)
@@ -143,7 +143,7 @@ describe "Invoice Items Record Endpoints" do
 
     json_response = JSON.parse(response.body)
 
-    expect(json_response["data"].count).to eq(4)
+    expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@transactions[0].id)
     expect(json_response["data"]["attributes"]["credit_card_number"]).to eq(@transactions[0].credit_card_number)
     expect(json_response["data"]["attributes"]["invoice_id"]).to eq(@transactions[0].invoice_id)
@@ -158,7 +158,7 @@ describe "Invoice Items Record Endpoints" do
 
     json_response = JSON.parse(response.body)
 
-    expect(json_response["data"].count).to eq(4)
+    expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@transactions[4].id)
     expect(json_response["data"]["attributes"]["invoice_id"]).to eq(@transactions[4].invoice_id)
     expect(json_response["data"]["attributes"]["credit_card_number"]).to eq(@transactions[4].credit_card_number)
@@ -173,7 +173,7 @@ describe "Invoice Items Record Endpoints" do
 
     json_response = JSON.parse(response.body)
 
-    expect(json_response["data"].count).to eq(4)
+    expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@transactions[0].id)
     expect(json_response["data"]["attributes"]["invoice_id"]).to eq(@transactions[0].invoice_id)
     expect(json_response["data"]["attributes"]["credit_card_number"]).to eq(@transactions[0].credit_card_number)
@@ -189,7 +189,7 @@ describe "Invoice Items Record Endpoints" do
 
     json_response = JSON.parse(response.body)
 
-    expect(json_response["data"].count).to eq(4)
+    expect(json_response["data"].count).to eq(3)
     expect(json_response["data"]["attributes"]["id"]).to eq(@transactions[0].id)
     expect(json_response["data"]["attributes"]["credit_card_number"]).to eq(@transactions[0].credit_card_number)
     expect(json_response["data"]["attributes"]["invoice_id"]).to eq(@transactions[0].invoice_id)
@@ -205,10 +205,10 @@ describe "Invoice Items Record Endpoints" do
     json_response = JSON.parse(response.body)
 
     expect(json_response["data"].count).to eq(2)
-    expect(json_response["data"][0]["attributes"]["id"]).to eq(@transactions_3.id)
-    expect(json_response["data"][0]["attributes"]["credit_card_number"]).to eq(@transactions_3.credit_card_number)
-    expect(json_response["data"][1]["attributes"]["id"]).to eq(@transactions_4.id)
-    expect(json_response["data"][1]["attributes"]["credit_card_number"]).to eq(@transactions_3.credit_card_number)
+    expect(json_response["data"][0]["attributes"]["id"]).to eq(@transaction_3.id)
+    expect(json_response["data"][0]["attributes"]["credit_card_number"]).to eq(@transaction_3.credit_card_number)
+    expect(json_response["data"][1]["attributes"]["id"]).to eq(@transaction_4.id)
+    expect(json_response["data"][1]["attributes"]["credit_card_number"]).to eq(@transaction_3.credit_card_number)
   end
 
   it "can find multiple transactions by invoice_id" do
@@ -220,7 +220,7 @@ describe "Invoice Items Record Endpoints" do
     json_response = JSON.parse(response.body)
 
     expect(json_response["data"].count).to eq(1)
-    expect(json_response["data"][0]["attributes"]["id"]).to eq(@transactions_1.id)
+    expect(json_response["data"][0]["attributes"]["id"]).to eq(@transaction_1.id)
     expect(json_response["data"][0]["attributes"]["invoice_id"]).to eq(@invoice_1.id)
   end
 
@@ -232,13 +232,13 @@ describe "Invoice Items Record Endpoints" do
     item_1 = create(:item, merchant: merchant_1)
 
     invoice_1 = create(:invoice, merchant: merchant_1, customer: customer_1)
-    transactions_1 = create(:transaction, invoice: invoice_1, created_at: "Fri, 04 Oct 2019 21:13:03 UTC +00:00")
+    transaction_1 = create(:transaction, invoice: invoice_1, created_at: "Fri, 04 Oct 2019 21:13:03 UTC +00:00")
 
     invoice_2 = create(:invoice, merchant: merchant_1, customer: customer_1)
-    transactions_2 = create(:transaction, invoice: invoice_2, created_at: "Mon, 05 Sep 2019 21:13:03 UTC +00:00")
+    transaction_2 = create(:transaction, invoice: invoice_2, created_at: "Mon, 05 Sep 2019 21:13:03 UTC +00:00")
 
     invoice_3 = create(:invoice, merchant: merchant_1, customer: customer_1)
-    transactions_3 = create(:transaction, invoice: invoice_3, created_at: "Fri, 04 Oct 2019 21:13:03 UTC +00:00")
+    transaction_3 = create(:transaction, invoice: invoice_3, created_at: "Fri, 04 Oct 2019 21:13:03 UTC +00:00")
 
     get "/api/v1/transactions/find_all?created_at=Fri, 04 Oct 2019 21:13:03 UTC +00:00"
 
@@ -247,10 +247,10 @@ describe "Invoice Items Record Endpoints" do
     json_response = JSON.parse(response.body)
 
     expect(json_response["data"].count).to eq(2)
-    expect(json_response["data"][0]["attributes"]["id"]).to eq(transactions_1.id)
-    expect(json_response["data"][0]["attributes"]["credit_card_number"]).to eq(transactions_1.credit_card_number)
-    expect(json_response["data"][1]["attributes"]["id"]).to eq(transactions_3.id)
-    expect(json_response["data"][1]["attributes"]["credit_card_number"]).to eq(transactions_1.credit_card_number)
+    expect(json_response["data"][0]["attributes"]["id"]).to eq(transaction_1.id)
+    expect(json_response["data"][0]["attributes"]["credit_card_number"]).to eq(transaction_1.credit_card_number)
+    expect(json_response["data"][1]["attributes"]["id"]).to eq(transaction_3.id)
+    expect(json_response["data"][1]["attributes"]["credit_card_number"]).to eq(transaction_3.credit_card_number)
   end
 
   it "can find multiple transactions by updated_at" do
@@ -261,13 +261,13 @@ describe "Invoice Items Record Endpoints" do
     item_1 = create(:item, merchant: merchant_1)
 
     invoice_1 = create(:invoice, merchant: merchant_1, customer: customer_1)
-    transactions_1 = create(:transaction, invoice: invoice_1, updated_at: "Fri, 04 Oct 2019 21:13:03 UTC +00:00")
+    transaction_1 = create(:transaction, invoice: invoice_1, updated_at: "Fri, 04 Oct 2019 21:13:03 UTC +00:00")
 
     invoice_2 = create(:invoice, merchant: merchant_1, customer: customer_1)
-    transactions_2 = create(:transaction, invoice: invoice_2, updated_at: "Mon, 05 Sep 2019 21:13:03 UTC +00:00")
+    transaction_2 = create(:transaction, invoice: invoice_2, updated_at: "Mon, 05 Sep 2019 21:13:03 UTC +00:00")
 
     invoice_3 = create(:invoice, merchant: merchant_1, customer: customer_1)
-    transactions_3 = create(:transaction, invoice: invoice_3, updated_at: "Fri, 04 Oct 2019 21:13:03 UTC +00:00")
+    transaction_3 = create(:transaction, invoice: invoice_3, updated_at: "Fri, 04 Oct 2019 21:13:03 UTC +00:00")
 
     get "/api/v1/transactions/find_all?updated_at=Fri, 04 Oct 2019 21:13:03 UTC +00:00"
 
@@ -276,10 +276,10 @@ describe "Invoice Items Record Endpoints" do
     json_response = JSON.parse(response.body)
 
     expect(json_response["data"].count).to eq(2)
-    expect(json_response["data"][0]["attributes"]["id"]).to eq(transactions_1.id)
-    expect(json_response["data"][0]["attributes"]["credit_card_number"]).to eq(transactions_1.credit_card_number)
-    expect(json_response["data"][1]["attributes"]["id"]).to eq(transactions_3.id)
-    expect(json_response["data"][1]["attributes"]["credit_card_number"]).to eq(transactions_1.credit_card_number)
+    expect(json_response["data"][0]["attributes"]["id"]).to eq(transaction_1.id)
+    expect(json_response["data"][0]["attributes"]["credit_card_number"]).to eq(transaction_1.credit_card_number)
+    expect(json_response["data"][1]["attributes"]["id"]).to eq(transaction_3.id)
+    expect(json_response["data"][1]["attributes"]["credit_card_number"]).to eq(transaction_3.credit_card_number)
   end
 
   it "can return a random invoice" do
