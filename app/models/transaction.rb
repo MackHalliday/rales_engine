@@ -5,4 +5,5 @@ class Transaction < ApplicationRecord
                         :updated_at
 
   belongs_to :invoice
+  has_one :customer, through: :invoice
 end
