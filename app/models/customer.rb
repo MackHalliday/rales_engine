@@ -4,4 +4,5 @@ class Customer < ApplicationRecord
                         :created_at,
                         :updated_at
   has_many :invoices
+  has_many :transactions, through: :invoices
 end
