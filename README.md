@@ -147,6 +147,6 @@
 
 ### Business Intelligence 
 
-No business intelligence endpoints available
+No business intelligence endpoints available.
 
 
