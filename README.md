@@ -2,7 +2,7 @@
 
 ## About
 
-API for merchant information with functionality to import CSV files included under `./db/data`
+API for merchant information with functionality to import CSV files included under `./db/data`.
 
 * Requirements: Ruby 2.4.1, Rails 5.2.3
 
