@@ -145,8 +145,8 @@
 * `GET /api/v1/customers/:id/invoices` returns a collection of associated invoices
 * `GET /api/v1/customers/:id/transactions` returns a collection of associated transactions
 
-### Business Intelligence 
 
+### Business Intelligence 
 ##### All Merchants
 * `GET /api/v1/merchants/most_revenue?quantity=x` returns the top x merchants ranked by total revenue
 
