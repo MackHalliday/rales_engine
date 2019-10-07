@@ -8,7 +8,6 @@
 
 #### System Requirements
 * Requirements: Ruby 2.4.1, Rails 5.2.3
-
 * Gems: Factory Bot, Capybara, SimpleCov, ActiveDesign, Faker, FastJSON
 
 
