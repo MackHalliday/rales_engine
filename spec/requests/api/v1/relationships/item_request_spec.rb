@@ -66,19 +66,19 @@ describe "Items Relationship Endpoints" do
 
   it "can return an item's invoice_items" do
 
-   get "/api/v1/items/#{@item_1.id}/invoice_items"
+   get "/api/v1/items/#{@item_2.id}/invoice_items"
 
    expect(response).to be_successful
 
    json_response = JSON.parse(response.body)
-
+   # binding.pry
    expect(json_response["data"].count).to eq(2)
-   expect(json_response["data"][0]["attributes"]["id"]).to eq(@item_1.invoice_items[0].id)
-   expect(json_response["data"][0]["attributes"]["invoice_id"]).to eq(@item_1.invoice_items[0].invoice.id)
-   expect(json_response["data"][0]["attributes"]["quantity"]).to eq(@item_1.invoice_items[0].quantity)
-   expect(json_response["data"][1]["attributes"]["id"]).to eq(@item_1.invoice_items[1].id)
-   expect(json_response["data"][1]["attributes"]["invoice_id"]).to eq(@item_1.invoice_items[1].invoice.id)
-   expect(json_response["data"][1]["attributes"]["quantity"]).to eq(@item_1.invoice_items[1].quantity)
+   expect(json_response["data"][0]["attributes"]["id"]).to eq(@item_2.invoice_items[0].id)
+   expect(json_response["data"][0]["attributes"]["invoice_id"]).to eq(@item_2.invoice_items[0].invoice.id)
+   expect(json_response["data"][0]["attributes"]["quantity"]).to eq(@item_2.invoice_items[0].quantity)
+   expect(json_response["data"][1]["attributes"]["id"]).to eq(@item_2.invoice_items[1].id)
+   expect(json_response["data"][1]["attributes"]["invoice_id"]).to eq(@item_2.invoice_items[1].invoice.id)
+   expect(json_response["data"][1]["attributes"]["quantity"]).to eq(@item_2.invoice_items[1].quantity)
   end
 
   it "can return an item's merchant" do
