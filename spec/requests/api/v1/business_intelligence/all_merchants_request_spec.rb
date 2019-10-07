@@ -71,10 +71,10 @@ describe "Merchant Record Endpoints" do
     expect(response).to be_successful
 
     json_response = JSON.parse(response.body)
-
-    expect(json_response["data"].count).to eq(2)
-    expect(json_response["data"]["attributes"]["id"]).to eq(@merchant_2.id)
-    expect(json_response["data"]["attributes"]["name"]).to eq(@merchant_2.name)
+  
+    expect(json_response["data"].count).to eq(1)
+    expect(json_response["data"][0]["attributes"]["id"]).to eq(@merchant_2.id)
+    expect(json_response["data"][0]["attributes"]["name"]).to eq(@merchant_2.name)
 
     get "/api/v1/merchants/most_revenue?quantity=2"
 
