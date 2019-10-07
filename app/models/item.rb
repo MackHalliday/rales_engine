@@ -5,4 +5,5 @@ class Item < ApplicationRecord
                         :created_at,
                         :updated_at
   belongs_to :merchant
+  has_many :invoice_items
 end
