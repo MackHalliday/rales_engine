@@ -2,8 +2,8 @@
 
 ## About
 
-API for merchant information with functionality to import CSV files included under `./db/data`.
-Project created based on the requirements for [Rales Engine](https://backend.turing.io/module3/projects/rails_engine_modified)
+* API for merchant information with functionality to import CSV files included under `./db/data`.
+* Project created based on the requirements for [Rales Engine](https://backend.turing.io/module3/projects/rails_engine_modified)
 
 * Requirements: Ruby 2.4.1, Rails 5.2.3
 
