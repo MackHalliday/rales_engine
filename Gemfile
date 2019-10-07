@@ -35,7 +35,7 @@ group :development, :test do
   gem 'pry'
   gem 'faker'
   gem 'active_designer'
-  gem 'simplecov'
+  gem 'simplecov', require: false
   gem 'shoulda-matchers'
   gem 'capybara'
   gem 'launchy'
