@@ -2,11 +2,12 @@
 
 ## About
 
+API for merchant information. 
+
 * Requirements: Ruby 2.4.1, Rails 5.2.3
 
-* System dependencies
+* Gems: Factory Bot, Capybara, SimpleCov, ActiveDesign, Faker, FastJSON
 
-* Configuration
 
 ## How to run the test suite
 1. Clone repository
