@@ -144,4 +144,6 @@ API for merchant information with functionality to import CSV files included und
 
 ### Business Intelligence 
 
+No business intelligence endpoints available
+
 
