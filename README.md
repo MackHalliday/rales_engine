@@ -147,6 +147,8 @@
 
 ### Business Intelligence 
 
-No business intelligence endpoints available.
+##### All Merchants
+* `GET /api/v1/merchants/most_revenue?quantity=x` returns the top x merchants ranked by total revenue
+
 
 
