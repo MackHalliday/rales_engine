@@ -9,13 +9,16 @@ API for merchant information with functionality to import CSV files included und
 * Gems: Factory Bot, Capybara, SimpleCov, ActiveDesign, Faker, FastJSON
 
 
-## How to run the test suite
+## How to run the application
 1. Clone repository
 2. Run `bundle install`
 3. Run `rake db:{drop,create,migrate}` to create database
 4. Run `rake import:all` to import all CSV files under `./db/data`
 5. Run `rails s` to load server
 6. Visit `http://localhost:3000` in Chrome browser and include endpoints below to see data
+
+## How to run the test suite 
+* Enter `rspec` into the terminal command line in the root of the directory
 
 ## Endpoints
 
