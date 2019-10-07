@@ -11,7 +11,8 @@
 ## How to run the test suite
 1. Clone repository
 2. Run `bundle install`
-3. Run `rake db:{drop,create,migrate}`
+3. Run `rake db:{drop,create,migrate}` to create database
+4. Run `rake import:all` to import all csv files
 4. Run `rails s` to load server
 
 ## Endpoints
